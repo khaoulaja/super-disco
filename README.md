@@ -1,7 +1,7 @@
 # Work Day Scheduler
 ## Purpose
 
- **Work Day Scheduler** is a website where an employee can create a schedule. He can add important events to a daily planner to manage time effectively.
+ **Work Day Scheduler** is a website where employees can create their schedules. They can add important events to a daily planner to manage time effectively.
  
  ![Homepage](./assets/images/work-day-scheduler.png)
 
