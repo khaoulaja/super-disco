@@ -22,9 +22,14 @@ var checkTime = function(){
         }
     });
 };
+//save events to the localstorage
+var saveEvents = function(){
+    localStorage.setItem("events", JSON.stringify(eventArr));
+}
 //get events from local storage
 var loadEvents = function(){
     eventArr = JSON.parse(localStorage.getItem("events"));
+    
      if (!eventArr) {
          eventArr =[];
     }
@@ -37,21 +42,24 @@ var loadEvents = function(){
     }
     console.log(eventArr);
 }
-
 loadEvents();
-var sortEvents = function(a, b){
-        var aTime = a.time;
-        var bTime = b.time; 
-        return ((aTime < bTime) ? -1 : ((aTime > bTime) ? 1 : 0));
-      }
+//clear local storage
+$("#clear-schedule").on("click",function () {
+    localStorage.clear();
+    $("textarea").val("");
+});
+//sort events by time //not necessary
+// var sortEvents = function(a, b){
+//         var aTime = a.time;
+//         var bTime = b.time; 
+//         return ((aTime < bTime) ? -1 : ((aTime > bTime) ? 1 : 0));
+//       }
 
-var saveEvents = function(){
-    localStorage.setItem("events", JSON.stringify(eventArr));
-}
-
+//save events in an array
 $(".saveBtn").on("click",function () { 
     var eventTime = parseInt($(this).closest(".time-bloc").attr("data-time"));
     var eventText = $(this).closest(".time-bloc").find("textarea").val();
+    //check if there's a saved events at that time before 
     if (!eventArr.find(o => o.time === eventTime)) {
 
         var event ={
@@ -63,21 +71,18 @@ $(".saveBtn").on("click",function () {
     else{
         for (var i = 0; i < eventArr.length; i++) {
             if (eventArr[i].time === eventTime) {
-                console.log("arr:", eventArr[i].time,"el:", eventTime);
                 eventArr[i].text = eventText;    
                 saveEvents();                    
             }
+        }
     }
-    }
-  eventArr.sort(sortEvents);
+  //eventArr.sort(sortEvents);
  saveEvents();
 });
 
 checkTime();
+//check time every 30 min
 setInterval(function(){
     checkTime();
 },5000*60*30);
-$("#clear-schedule").on("click",function () {
-    localStorage.clear();
-    $("textarea").val("");
-})
+
