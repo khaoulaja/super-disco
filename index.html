@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <title>Work Day Scheduler</title>
+    <title> Work Day Scheduler</title>
   </head>
 
   <body>
@@ -19,56 +19,58 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container p-3">
+    <div class="container mb-5">
       <!-- Timeblocks go here -->
-      <div class="row time-bloc">
-        <div class="col-2 col-md-1  hour">9am</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+      <div class="row time-bloc " data-time="9">
+        <div class="col-2 col-md-1 hour">9am</div>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn  "><i class="fas fa-save align-middle"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="10" >
         <div class="col-2 col-md-1 hour">10am</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="11">
         <div class="col-2 col-md-1 hour">11am</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="12">
         <div class="col-2 col-md-1 hour">12pm</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="13">
         <div class="col-2 col-md-1 hour">1pm</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="14">
         <div class="col-2 col-md-1 hour">2pm</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="15">
         <div class="col-2 col-md-1 hour">3pm</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="16">
         <div class="col-2 col-md-1 hour">4pm</div>
-        <textarea class="col-8 col-md-10 past"></textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
-      <div class="row">
+      <div class="row time-bloc" data-time="17">
         <div class="col-2 col-md-1 hour">5pm</div>
-        <textarea class="col-8 col-md-10 past">I have a lot to do</textarea>
+        <textarea class="col-8 col-md-10"></textarea>
         <button class="col-2 col-md-1 saveBtn "><i class="fas fa-save"></i></button>
       </div>
+      <button class="col-12 btn btn-danger m-3 p-3 " id="clear-schedule">Clear Schedule</button>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
