@@ -35,12 +35,10 @@ var loadEvents = function(){
     }
     
     for (let i = 0; i < eventArr.length; i++) {
-     console.log(eventArr[i]);
      var el =".time-bloc[data-time='"+eventArr[i].time+"']";
      var value=eventArr[i].text;
      $(el).find("textarea").val(value);
     }
-    console.log(eventArr);
 }
 loadEvents();
 //clear local storage
