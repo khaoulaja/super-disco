@@ -1,34 +1,32 @@
-var currentTime=13;
+//var currentTime=13; //test only
 var eventArr =[];
-//var currentTime = moment().hour();
+var currentTime = moment().hour();
 var today = moment().format("dddd, MMMM Do");
 
+//display today's date
 $("#currentDay").text(today);
 
+//check time whether it's in the past present or future
 var checkTime = function(){
     $(".time-bloc").each( function(index){
-    var time =parseInt($(this).attr("data-time"));
+        var time =parseInt($(this).attr("data-time"));
 
-    if(time === currentTime){
-        $(this).find("textarea").addClass("present");//red
-    }
-    else if(currentTime <time){
-        $(this).find("textarea").addClass("future"); //green
-    }
-    else if(currentTime > time){
-        $(this).find("textarea").addClass("past");//gray
-    }
-
-
+        if(time === currentTime){
+            $(this).find("textarea").addClass("present");//red
+        }
+        else if(currentTime <time){
+            $(this).find("textarea").addClass("future"); //green
+        }
+        else if(currentTime > time){
+            $(this).find("textarea").addClass("past");//gray
+        }
     });
 };
+//get events from local storage
 var loadEvents = function(){
-   
     eventArr = JSON.parse(localStorage.getItem("events"));
      if (!eventArr) {
          eventArr =[];
-        console.log("empty");
-        
     }
     
     for (let i = 0; i < eventArr.length; i++) {
@@ -36,12 +34,10 @@ var loadEvents = function(){
      var el =".time-bloc[data-time='"+eventArr[i].time+"']";
      var value=eventArr[i].text;
      $(el).find("textarea").val(value);
-     
-             
-         }
-    
+    }
     console.log(eventArr);
 }
+
 loadEvents();
 var sortEvents = function(a, b){
         var aTime = a.time;
